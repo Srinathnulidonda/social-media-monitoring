@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-"""
-Indian Movie Monitoring Application - Focus on Telugu Film Industry (TFI)
-Monitors social media accounts, news channels, and YouTube channels for movie updates
-"""
-
+#app.py
 import os
 import logging
 from flask import Flask, render_template, jsonify, request, redirect, url_for, flash
@@ -1061,7 +1056,7 @@ def enhanced_extract_movie_info(text: str) -> Dict:
         r'#(\w+)(?:movie|film|trailer|teaser)',
         r'(\w+)\s+(?:movie|film|trailer|teaser)',
         r'"([^"]+)"',
-        r''([^']+)''
+        r"'([^']+)'"  # Fixed the single quote pattern
     ]
     
     for pattern in movie_patterns:
@@ -1381,3 +1376,4 @@ if __name__ == '__main__':
     
     logger.info("Starting Indian Movie Monitoring Application")
     app.run(host='0.0.0.0', port=5000, debug=Config.DEBUG)
+    
